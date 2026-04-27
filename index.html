@@ -230,6 +230,80 @@
     }
     .stat-lbl { font-size: .8rem; color: rgba(255,255,255,.6); font-weight: 500; text-align: center; }
 
+    /* ─── Blog Section ─── */
+    #blog { padding: 100px 0; background: var(--navy); position: relative; overflow: hidden; }
+    #blog::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 600px 400px at 80% 20%, rgba(201,150,42,.07) 0%, transparent 60%),
+        radial-gradient(ellipse 400px 300px at 10% 80%, rgba(201,150,42,.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .blog-header { text-align: center; margin-bottom: 56px; position: relative; z-index: 1; }
+    .blog-header .section-label { justify-content: center; color: var(--gold-light); }
+    .blog-header .section-label::before { display: none; }
+    .blog-header .section-heading { color: var(--white); }
+    .blog-header .section-sub { color: rgba(255,255,255,.6); margin: 0 auto; }
+    .blog-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px; margin-bottom: 48px; position: relative; z-index: 1;
+    }
+    .blog-card {
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius-lg); overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: all .3s ease;
+    }
+    .blog-card:hover { transform: translateY(-8px); border-color: rgba(201,150,42,.4); box-shadow: 0 24px 60px rgba(0,0,0,.4); }
+    .blog-card-img {
+      height: 200px; position: relative; overflow: hidden;
+      background: linear-gradient(135deg, var(--navy-mid), var(--navy-light));
+      display: flex; align-items: center; justify-content: center;
+    }
+    .blog-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+    .blog-card:hover .blog-card-img img { transform: scale(1.05); }
+    .blog-card-img-placeholder {
+      width: 56px; height: 56px; opacity: .3;
+    }
+    .blog-card-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(13,27,62,.6) 0%, transparent 60%);
+    }
+    .blog-card-cat {
+      position: absolute; top: 14px; left: 14px;
+      background: var(--gold); color: var(--navy);
+      font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 4px;
+    }
+    .blog-card-body { padding: 24px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
+    .blog-card-date { font-size: .75rem; color: rgba(255,255,255,.35); font-weight: 500; }
+    .blog-card-title {
+      font-family: 'Playfair Display', serif; font-size: 1.1rem;
+      color: var(--white); line-height: 1.4; flex: 1;
+      transition: color .2s;
+    }
+    .blog-card:hover .blog-card-title { color: var(--gold-light); }
+    .blog-card-excerpt { font-size: .85rem; color: rgba(255,255,255,.5); line-height: 1.65; }
+    .blog-card-footer {
+      padding: 16px 24px; border-top: 1px solid rgba(255,255,255,.07);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .blog-card-read {
+      font-size: .8rem; font-weight: 600; color: var(--gold);
+      display: flex; align-items: center; gap: 6px; transition: gap .2s;
+    }
+    .blog-card:hover .blog-card-read { gap: 10px; }
+    .blog-card-read svg { width: 14px; height: 14px; stroke: var(--gold); }
+    .blog-cta-wrap { text-align: center; position: relative; z-index: 1; }
+    .blog-loading { text-align: center; padding: 60px 0; color: rgba(255,255,255,.4); }
+    .blog-spinner {
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 3px solid rgba(255,255,255,.1); border-top-color: var(--gold);
+      animation: spin .8s linear infinite; margin: 0 auto 14px;
+    }
+    @media (max-width: 900px) { .blog-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .blog-grid { grid-template-columns: 1fr; } }
+
     /* ─── Roadmap ─── */
     #roadmap { padding: 100px 0; background: var(--cream); }
     .roadmap-header { text-align: center; margin-bottom: 64px; }
@@ -803,7 +877,7 @@
         <li><a href="#visa">Visa Guide</a></li>
         <li><a href="#deadlines">Deadlines</a></li>
         <li><a href="#faq">FAQ</a></li>
-        <li><a href="https://easyusaapplyblog.wordpress.com/" target="_blank" rel="noopener">Blog</a></li>
+        <li><a href="#blog">Blog</a></li>
       </ul>
       <a href="#newsletter" class="btn btn-primary nav-cta">Get Started</a>
       <button class="nav-hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
@@ -817,7 +891,7 @@
     <a href="#visa" role="menuitem">Visa Guide</a>
     <a href="#deadlines" role="menuitem">Deadlines</a>
     <a href="#faq" role="menuitem">FAQ</a>
-    <a href="https://easyusaapplyblog.wordpress.com/" target="_blank" rel="noopener" role="menuitem">Blog</a>
+    <a href="#blog" role="menuitem">Blog</a>
     <a href="#newsletter" class="btn btn-primary">Get Started</a>
   </div>
 </nav>
@@ -897,6 +971,28 @@
     </div>
   </div>
 </div>
+
+<!-- ─── Blog Section ─── -->
+<section id="blog" aria-labelledby="blog-heading">
+  <div class="container">
+    <div class="blog-header" data-reveal>
+      <div class="section-label">From Our Blog</div>
+      <h2 class="section-heading" id="blog-heading">Latest Insights &amp; <span class="serif-italic">Expert Advice</span></h2>
+      <p class="section-sub">Tips, guides, and stories to help you navigate your US university journey with confidence.</p>
+    </div>
+    <div id="blogGrid" class="blog-grid">
+      <div class="blog-loading" style="grid-column:1/-1">
+        <div class="blog-spinner"></div>
+        <p>Loading latest posts…</p>
+      </div>
+    </div>
+    <div class="blog-cta-wrap" data-reveal>
+      <a href="https://blog.easyusaapply.com" target="_blank" rel="noopener" class="btn btn-outline" style="border-color:rgba(201,150,42,.5);color:var(--gold-light)">
+        View All Articles &nbsp;→
+      </a>
+    </div>
+  </div>
+</section>
 
 <!-- ─── Application Roadmap ─── -->
 <section id="roadmap" aria-labelledby="roadmap-heading">
@@ -2134,6 +2230,89 @@
     }
     setTimeout(() => { statusEl.textContent = ''; }, 8000);
   }
+
+  /* ── Blog Posts from WordPress REST API ── */
+  (async function loadBlogPosts() {
+    const grid = document.getElementById('blogGrid');
+    const BLOG = 'https://blog.easyusaapply.com';
+    const gradients = [
+      'linear-gradient(135deg,#0d1b3e,#1e3366)',
+      'linear-gradient(135deg,#1a2a1a,#1e4a2a)',
+      'linear-gradient(135deg,#2a1a1a,#4a1e1e)',
+    ];
+    const icons = [
+      `<svg class="blog-card-img-placeholder" viewBox="0 0 56 56" fill="none"><rect x="14" y="16" width="28" height="24" rx="3" stroke="rgba(201,150,42,.6)" stroke-width="2"/><line x1="20" y1="24" x2="36" y2="24" stroke="rgba(255,255,255,.4)" stroke-width="1.5" stroke-linecap="round"/><line x1="20" y1="30" x2="30" y2="30" stroke="rgba(255,255,255,.25)" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+      `<svg class="blog-card-img-placeholder" viewBox="0 0 56 56" fill="none"><circle cx="28" cy="28" r="14" stroke="rgba(201,150,42,.6)" stroke-width="2"/><path d="M22 28l4 4 8-8" stroke="rgba(255,255,255,.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+      `<svg class="blog-card-img-placeholder" viewBox="0 0 56 56" fill="none"><path d="M28 14l3 7h8l-6.5 5 2.5 7.5L28 29l-7 4.5L23.5 26 17 21h8z" stroke="rgba(201,150,42,.6)" stroke-width="1.5" fill="rgba(201,150,42,.1)"/></svg>`,
+    ];
+
+    function stripHtml(html) {
+      const div = document.createElement('div');
+      div.innerHTML = html;
+      return div.textContent || '';
+    }
+
+    function fmtPostDate(iso) {
+      return new Date(iso).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+    }
+
+    function cardHTML(post, idx) {
+      const title    = post.title?.rendered || 'Untitled';
+      const excerpt  = stripHtml(post.excerpt?.rendered || '').replace(/\[…\]|\[&hellip;\]/g, '…').trim().slice(0, 120) + '…';
+      const date     = fmtPostDate(post.date);
+      const link     = post.link || BLOG;
+      const imgUrl   = post._embedded?.['wp:featuredmedia']?.[0]?.source_url || null;
+      const cats     = post._embedded?.['wp:term']?.[0] || [];
+      const cat      = cats[0]?.name || 'Blog';
+      const grad     = gradients[idx % gradients.length];
+      const icon     = icons[idx % icons.length];
+      const imgHTML  = imgUrl
+        ? `<img src="${imgUrl}" alt="${title}" loading="lazy" /><div class="blog-card-img-overlay"></div>`
+        : `${icon}<div class="blog-card-img-overlay"></div>`;
+      return `<a href="${link}" target="_blank" rel="noopener" class="blog-card" style="text-decoration:none">
+        <div class="blog-card-img" style="background:${grad}">
+          ${imgHTML}
+          <span class="blog-card-cat">${cat}</span>
+        </div>
+        <div class="blog-card-body">
+          <span class="blog-card-date">${date}</span>
+          <div class="blog-card-title">${title}</div>
+          <p class="blog-card-excerpt">${excerpt}</p>
+        </div>
+        <div class="blog-card-footer">
+          <span class="blog-card-read">
+            Read Article
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </div>
+      </a>`;
+    }
+
+    try {
+      const res = await fetch(`${BLOG}/wp-json/wp/v2/posts?per_page=3&_embed`, { signal: AbortSignal.timeout(8000) });
+      if (!res.ok) throw new Error('API error');
+      const posts = await res.json();
+      if (!posts.length) throw new Error('No posts');
+      grid.innerHTML = posts.map((p, i) => cardHTML(p, i)).join('');
+    } catch {
+      grid.innerHTML = `
+        <a href="${BLOG}/2024/02/15/how-to-write-a-winning-sop/" target="_blank" rel="noopener" class="blog-card" style="text-decoration:none">
+          <div class="blog-card-img" style="${gradients[0]}"><div class="blog-card-img-overlay"></div><span class="blog-card-cat">Admissions</span>${icons[0]}</div>
+          <div class="blog-card-body"><span class="blog-card-date">Visit our blog</span><div class="blog-card-title">How to Write a Winning Statement of Purpose</div><p class="blog-card-excerpt">Your SOP is the most important document in your application. Learn the framework top admits use to craft compelling narratives…</p></div>
+          <div class="blog-card-footer"><span class="blog-card-read">Read Article <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+        </a>
+        <a href="${BLOG}" target="_blank" rel="noopener" class="blog-card" style="text-decoration:none">
+          <div class="blog-card-img" style="${gradients[1]}"><div class="blog-card-img-overlay"></div><span class="blog-card-cat">Scholarships</span>${icons[1]}</div>
+          <div class="blog-card-body"><span class="blog-card-date">Visit our blog</span><div class="blog-card-title">Top 10 Fully-Funded Scholarships for International Students</div><p class="blog-card-excerpt">Discover the best scholarship opportunities that cover tuition, living expenses, and more for international applicants…</p></div>
+          <div class="blog-card-footer"><span class="blog-card-read">Read Article <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+        </a>
+        <a href="${BLOG}" target="_blank" rel="noopener" class="blog-card" style="text-decoration:none">
+          <div class="blog-card-img" style="${gradients[2]}"><div class="blog-card-img-overlay"></div><span class="blog-card-cat">Visa Guide</span>${icons[2]}</div>
+          <div class="blog-card-body"><span class="blog-card-date">Visit our blog</span><div class="blog-card-title">F-1 Visa Interview: What to Expect &amp; How to Prepare</div><p class="blog-card-excerpt">Everything you need to know about your F-1 visa interview — from documents to common questions consular officers ask…</p></div>
+          <div class="blog-card-footer"><span class="blog-card-read">Read Article <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+        </a>`;
+    }
+  })();
 
   /* ── Active nav link on scroll ── */
   const sections = document.querySelectorAll('section[id], div[id="hero"]');
