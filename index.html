@@ -2288,27 +2288,34 @@
       </a>`;
     }
 
+    const SLUGS = [
+      'your-dream-to-study-in-the-usa-starts-here',
+      'top-10-fully-funded-scholarships-for-international-students-in-2026',
+      'f1-visa-interview-what-to-expect-and-how-to-prepare',
+    ];
     try {
-      const res = await fetch(`${BLOG}/wp-json/wp/v2/posts?per_page=3&_embed`, { signal: AbortSignal.timeout(8000) });
+      const res = await fetch(`${BLOG}/wp-json/wp/v2/posts?slug=${SLUGS.join(',')}&_embed`, { signal: AbortSignal.timeout(8000) });
       if (!res.ok) throw new Error('API error');
       const posts = await res.json();
       if (!posts.length) throw new Error('No posts');
-      grid.innerHTML = posts.map((p, i) => cardHTML(p, i)).join('');
+      // Reorder to match SLUGS order
+      const ordered = SLUGS.map(s => posts.find(p => p.slug === s)).filter(Boolean);
+      grid.innerHTML = (ordered.length ? ordered : posts).map((p, i) => cardHTML(p, i)).join('');
     } catch {
       grid.innerHTML = `
-        <a href="${BLOG}/2024/02/15/how-to-write-a-winning-sop/" target="_blank" rel="noopener" class="blog-card" style="text-decoration:none">
+        <a href="${BLOG}/your-dream-to-study-in-the-usa-starts-here" target="_blank" rel="noopener" class="blog-card" style="text-decoration:none">
           <div class="blog-card-img" style="${gradients[0]}"><div class="blog-card-img-overlay"></div><span class="blog-card-cat">Admissions</span>${icons[0]}</div>
-          <div class="blog-card-body"><span class="blog-card-date">Visit our blog</span><div class="blog-card-title">How to Write a Winning Statement of Purpose</div><p class="blog-card-excerpt">Your SOP is the most important document in your application. Learn the framework top admits use to craft compelling narratives…</p></div>
+          <div class="blog-card-body"><span class="blog-card-date">Visit our blog</span><div class="blog-card-title">Your Dream to Study in the USA Starts Here</div><p class="blog-card-excerpt">Your journey to studying in the USA begins here. Everything you need to know — from choosing universities to getting your visa…</p></div>
           <div class="blog-card-footer"><span class="blog-card-read">Read Article <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
         </a>
-        <a href="${BLOG}" target="_blank" rel="noopener" class="blog-card" style="text-decoration:none">
+        <a href="${BLOG}/top-10-fully-funded-scholarships-for-international-students-in-2026" target="_blank" rel="noopener" class="blog-card" style="text-decoration:none">
           <div class="blog-card-img" style="${gradients[1]}"><div class="blog-card-img-overlay"></div><span class="blog-card-cat">Scholarships</span>${icons[1]}</div>
-          <div class="blog-card-body"><span class="blog-card-date">Visit our blog</span><div class="blog-card-title">Top 10 Fully-Funded Scholarships for International Students</div><p class="blog-card-excerpt">Discover the best scholarship opportunities that cover tuition, living expenses, and more for international applicants…</p></div>
+          <div class="blog-card-body"><span class="blog-card-date">Visit our blog</span><div class="blog-card-title">Top 10 Fully-Funded Scholarships for International Students in 2026</div><p class="blog-card-excerpt">Discover the best fully-funded scholarship opportunities for 2026 — covering tuition, living expenses, and more for international applicants…</p></div>
           <div class="blog-card-footer"><span class="blog-card-read">Read Article <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
         </a>
-        <a href="${BLOG}" target="_blank" rel="noopener" class="blog-card" style="text-decoration:none">
+        <a href="${BLOG}/f1-visa-interview-what-to-expect-and-how-to-prepare" target="_blank" rel="noopener" class="blog-card" style="text-decoration:none">
           <div class="blog-card-img" style="${gradients[2]}"><div class="blog-card-img-overlay"></div><span class="blog-card-cat">Visa Guide</span>${icons[2]}</div>
-          <div class="blog-card-body"><span class="blog-card-date">Visit our blog</span><div class="blog-card-title">F-1 Visa Interview: What to Expect &amp; How to Prepare</div><p class="blog-card-excerpt">Everything you need to know about your F-1 visa interview — from documents to common questions consular officers ask…</p></div>
+          <div class="blog-card-body"><span class="blog-card-date">Visit our blog</span><div class="blog-card-title">F-1 Visa Interview: What to Expect &amp; How to Prepare</div><p class="blog-card-excerpt">Everything you need to know about your F-1 visa interview — from documents to bring to the common questions consular officers ask…</p></div>
           <div class="blog-card-footer"><span class="blog-card-read">Read Article <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
         </a>`;
     }
