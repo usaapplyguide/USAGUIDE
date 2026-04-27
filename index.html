@@ -1816,18 +1816,24 @@
     emailjs.send('service_y1go80m', 'template_jv174se', {
       first_name: firstName,
       email:      email,
-      pdf_link:   'https://drive.google.com/file/d/1e8nZBxX0drZeOvnSaduFeXPU8tgG499o/view?usp=drive_link'
+      pdf_link:   'https://drive.google.com/uc?export=download&id=1e8nZBxX0drZeOvnSaduFeXPU8tgG499o'
     }).then(() => {
       document.getElementById('successMsg').style.display = 'block';
+      document.getElementById('successMsg').textContent = 'Welcome aboard! Check your inbox for your welcome kit.';
+      document.getElementById('successMsg').style.background = 'rgba(76,175,122,.15)';
       btn.textContent = 'You\'re In! ✓';
       btn.style.background = '#2d9e4a';
       btn.style.color = '#fff';
-    }).catch(() => {
-      document.getElementById('successMsg').style.display = 'block';
-      document.getElementById('successMsg').textContent = 'Welcome aboard! Check your inbox shortly.';
-      btn.textContent = 'You\'re In! ✓';
-      btn.style.background = '#2d9e4a';
-      btn.style.color = '#fff';
+    }).catch((err) => {
+      console.error('EmailJS error:', err);
+      const msg = document.getElementById('successMsg');
+      msg.style.display = 'block';
+      msg.style.background = 'rgba(204,68,68,.15)';
+      msg.style.borderColor = 'rgba(204,68,68,.3)';
+      msg.style.color = '#cc4444';
+      msg.textContent = 'Error: ' + (err?.text || err?.message || JSON.stringify(err));
+      btn.textContent = 'Try Again';
+      btn.disabled = false;
     });
   });
 
