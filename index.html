@@ -2231,7 +2231,7 @@
     setTimeout(() => { statusEl.textContent = ''; }, 8000);
   }
 
-  /* ── Blog Posts from WordPress REST API ── */
+  /* ── Blog Posts from Hashnode GraphQL API ── */
   (async function loadBlogPosts() {
     const grid = document.getElementById('blogGrid');
     const BLOG = 'https://blog.easyusaapply.com';
@@ -2246,27 +2246,20 @@
       `<svg class="blog-card-img-placeholder" viewBox="0 0 56 56" fill="none"><path d="M28 14l3 7h8l-6.5 5 2.5 7.5L28 29l-7 4.5L23.5 26 17 21h8z" stroke="rgba(201,150,42,.6)" stroke-width="1.5" fill="rgba(201,150,42,.1)"/></svg>`,
     ];
 
-    function stripHtml(html) {
-      const div = document.createElement('div');
-      div.innerHTML = html;
-      return div.textContent || '';
-    }
-
     function fmtPostDate(iso) {
       return new Date(iso).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
     }
 
     function cardHTML(post, idx) {
-      const title    = post.title?.rendered || 'Untitled';
-      const excerpt  = stripHtml(post.excerpt?.rendered || '').replace(/\[…\]|\[&hellip;\]/g, '…').trim().slice(0, 120) + '…';
-      const date     = fmtPostDate(post.date);
-      const link     = post.link || BLOG;
-      const imgUrl   = post._embedded?.['wp:featuredmedia']?.[0]?.source_url || null;
-      const cats     = post._embedded?.['wp:term']?.[0] || [];
-      const cat      = cats[0]?.name || 'Blog';
-      const grad     = gradients[idx % gradients.length];
-      const icon     = icons[idx % icons.length];
-      const imgHTML  = imgUrl
+      const title   = post.title || 'Untitled';
+      const excerpt = (post.brief || '').trim().slice(0, 120) + '…';
+      const date    = post.publishedAt ? fmtPostDate(post.publishedAt) : 'Visit our blog';
+      const link    = `${BLOG}/${post.slug}`;
+      const imgUrl  = post.coverImage?.url || null;
+      const cat     = post.tags?.[0]?.name || 'Blog';
+      const grad    = gradients[idx % gradients.length];
+      const icon    = icons[idx % icons.length];
+      const imgHTML = imgUrl
         ? `<img src="${imgUrl}" alt="${title}" loading="lazy" /><div class="blog-card-img-overlay"></div>`
         : `${icon}<div class="blog-card-img-overlay"></div>`;
       return `<a href="${link}" target="_blank" rel="noopener" class="blog-card" style="text-decoration:none">
@@ -2293,14 +2286,29 @@
       'top-10-fully-funded-scholarships-for-international-students-in-2026',
       'f1-visa-interview-what-to-expect-and-how-to-prepare',
     ];
+
+    const GQL_QUERY = `query {
+      publication(host: "blog.easyusaapply.com") {
+        p0: post(slug: "${SLUGS[0]}") { title brief slug publishedAt coverImage { url } tags { name } }
+        p1: post(slug: "${SLUGS[1]}") { title brief slug publishedAt coverImage { url } tags { name } }
+        p2: post(slug: "${SLUGS[2]}") { title brief slug publishedAt coverImage { url } tags { name } }
+      }
+    }`;
+
     try {
-      const res = await fetch(`${BLOG}/wp-json/wp/v2/posts?slug=${SLUGS.join(',')}&_embed`, { signal: AbortSignal.timeout(8000) });
+      const res = await fetch('https://gql.hashnode.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query: GQL_QUERY }),
+        signal: AbortSignal.timeout(8000)
+      });
       if (!res.ok) throw new Error('API error');
-      const posts = await res.json();
-      if (!posts.length) throw new Error('No posts');
-      // Reorder to match SLUGS order
-      const ordered = SLUGS.map(s => posts.find(p => p.slug === s)).filter(Boolean);
-      grid.innerHTML = (ordered.length ? ordered : posts).map((p, i) => cardHTML(p, i)).join('');
+      const { data } = await res.json();
+      const pub = data?.publication;
+      if (!pub) throw new Error('No publication found');
+      const posts = [pub.p0, pub.p1, pub.p2].filter(Boolean);
+      if (!posts.length) throw new Error('No posts returned');
+      grid.innerHTML = posts.map((p, i) => cardHTML(p, i)).join('');
     } catch {
       grid.innerHTML = `
         <a href="${BLOG}/your-dream-to-study-in-the-usa-starts-here" target="_blank" rel="noopener" class="blog-card" style="text-decoration:none">
