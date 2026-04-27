@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EasyUSAApply — Your Complete Guide to Studying in America</title>
+<meta name="description" content="EasyUSAApply helps international students navigate the US university application process — from choosing schools to getting your F-1 visa. Free guides, scholarships, and more." />
+<meta name="keywords" content="USA university application, international students, F-1 visa, US scholarships, study in America, college application guide" />
+<meta property="og:title" content="EasyUSAApply — Study in America Made Easy" />
+<meta property="og:description" content="Free guides, scholarships, visa info, and step-by-step help for international students applying to US universities." />
+<meta property="og:url" content="https://easyusaapply.com" />
+<link rel="canonical" href="https://easyusaapply.com" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0D1B2A; --navy-mid: #1A2E45; --gold: #C9A84C; --gold-light: #E8C97A;
+    --cream: #FAF7F0; --cream-dark: #F0EAD8; --white: #FFFFFF;
+    --text-muted: #7A8899; --text-body: #2C3E50;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text-body); overflow-x: hidden; }
+  nav { position: sticky; top: 0; z-index: 100; background: var(--navy); display: flex; align-items: center; justify-content: space-between; padding: 0 4rem; height: 64px; border-bottom: 1px solid rgba(201,168,76,0.3); }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--gold); }
+  .nav-logo span { color: var(--white); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--gold-light); }
+  .nav-cta { background: var(--gold) !important; color: var(--navy) !important; padding: 8px 18px; border-radius: 6px; font-weight: 600 !important; }
+  .nav-cta:hover { background: var(--gold-light) !important; }
+  .hero { background: var(--navy); min-height: 88vh; display: flex; align-items: center; position: relative; overflow: hidden; padding: 6rem 4rem; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 80% at 80% 50%, rgba(201,168,76,0.08) 0%, transparent 70%); pointer-events: none; }
+  .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 1200px; margin: 0 auto; width: 100%; align-items: center; }
+  .hero-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.4); color: var(--gold-light); padding: 6px 14px; border-radius: 40px; font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1.5rem; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 5vw, 4.5rem); font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: 1.25rem; letter-spacing: -1px; }
+  .hero h1 em { font-style: normal; color: var(--gold); }
+  .hero p { font-size: 18px; font-weight: 300; color: rgba(255,255,255,0.65); line-height: 1.7; max-width: 520px; margin-bottom: 2.5rem; }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary { background: var(--gold); color: var(--navy); padding: 14px 28px; border-radius: 8px; font-size: 15px; font-weight: 600; text-decoration: none; transition: transform 0.2s, background 0.2s; display: inline-block; }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-outline { border: 1.5px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.85); padding: 14px 28px; border-radius: 8px; font-size: 15px; font-weight: 500; text-decoration: none; transition: border-color 0.2s, color 0.2s; display: inline-block; }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .hero-stats { background: rgba(255,255,255,0.05); border: 1px solid rgba(201,168,76,0.2); border-radius: 20px; padding: 2rem; }
+  .hero-stats-title { font-size: 13px; font-weight: 600; color: var(--gold); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(201,168,76,0.2); }
+  .stat-row { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .stat-row:last-child { border-bottom: none; }
+  .stat-label { font-size: 14px; color: rgba(255,255,255,0.6); }
+  .stat-val { font-size: 22px; font-weight: 700; color: var(--white); font-family: 'Playfair Display', serif; }
+  .stat-badge { font-size: 11px; background: rgba(201,168,76,0.2); color: var(--gold-light); padding: 3px 8px; border-radius: 20px; font-weight: 600; }
+  .section { padding: 6rem 4rem; max-width: 1200px; margin: 0 auto; }
+  .section-label { font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 700; color: var(--navy); line-height: 1.2; margin-bottom: 1rem; }
+  .section-sub { font-size: 17px; color: var(--text-muted); line-height: 1.7; max-width: 600px; margin-bottom: 3rem; }
+  .steps-timeline { display: flex; flex-direction: column; position: relative; }
+  .step-item { display: grid; grid-template-columns: 60px 1fr; gap: 1.5rem; align-items: start; position: relative; }
+  .step-item:not(:last-child)::after { content: ''; position: absolute; left: 29px; top: 60px; width: 2px; height: 100%; background: linear-gradient(to bottom, var(--gold), rgba(201,168,76,0.1)); }
+  .step-num { width: 60px; height: 60px; border-radius: 50%; background: var(--navy); border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--gold); flex-shrink: 0; position: relative; z-index: 2; }
+  .step-body { padding: 0.25rem 0 3rem; }
+  .step-body h3 { font-size: 18px; font-weight: 600; color: var(--navy); margin-bottom: 0.4rem; }
+  .step-body p { font-size: 15px; color: var(--text-muted); line-height: 1.65; max-width: 600px; }
+  .step-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 0.75rem; }
+  .tag { font-size: 12px; font-weight: 500; background: rgba(13,27,42,0.08); color: var(--navy); padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(13,27,42,0.12); }
+  .resources-bg { background: var(--navy); padding: 6rem 4rem; }
+  .resources-inner { max-width: 1200px; margin: 0 auto; }
+  .resources-bg .section-title { color: var(--white); }
+  .resources-bg .section-sub { color: rgba(255,255,255,0.55); }
+  .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .res-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(201,168,76,0.2); border-radius: 16px; padding: 1.75rem; transition: border-color 0.25s, transform 0.25s; cursor: pointer; }
+  .res-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+  .res-icon { width: 44px; height: 44px; background: rgba(201,168,76,0.15); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 20px; }
+  .res-card h3 { font-size: 17px; font-weight: 600; color: var(--white); margin-bottom: 0.5rem; }
+  .res-card p { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.6; margin-bottom: 1rem; }
+  .res-link { font-size: 13px; font-weight: 600; color: var(--gold); text-decoration: none; }
+  .visa-section { padding: 6rem 4rem; background: var(--cream-dark); }
+  .visa-inner { max-width: 1200px; margin: 0 auto; }
+  .visa-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; }
+  .visa-card { background: var(--white); border-radius: 14px; border: 1.5px solid var(--cream-dark); padding: 1.75rem; transition: box-shadow 0.2s, transform 0.2s; }
+  .visa-card:hover { box-shadow: 0 8px 32px rgba(13,27,42,0.1); transform: translateY(-2px); }
+  .visa-type { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+  .visa-card h3 { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: var(--navy); margin-bottom: 0.35rem; }
+  .visa-card .visa-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.25rem; }
+  .visa-details { display: flex; flex-direction: column; gap: 8px; }
+  .visa-detail-row { display: flex; justify-content: space-between; font-size: 13px; padding: 6px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+  .visa-detail-row:last-child { border-bottom: none; }
+  .visa-detail-row .key { color: var(--text-muted); }
+  .visa-detail-row .val { font-weight: 600; color: var(--navy); }
+  .faq-section { padding: 6rem 4rem; background: var(--cream); }
+  .faq-inner { max-width: 800px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid rgba(13,27,42,0.1); padding: 1.25rem 0; cursor: pointer; }
+  .faq-q { display: flex; justify-content: space-between; align-items: center; font-size: 16px; font-weight: 500; color: var(--navy); user-select: none; }
+  .faq-q .icon { font-size: 22px; color: var(--gold); flex-shrink: 0; transition: transform 0.2s; }
+  .faq-a { font-size: 15px; color: var(--text-muted); line-height: 1.7; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.2s; }
+  .faq-item.open .faq-a { max-height: 200px; padding-top: 0.75rem; }
+  .faq-item.open .icon { transform: rotate(45deg); }
+  .cta-section { background: var(--navy); padding: 5rem 4rem; text-align: center; }
+  .cta-section h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); color: var(--white); margin-bottom: 1rem; }
+  .cta-section p { font-size: 17px; color: rgba(255,255,255,0.55); margin-bottom: 2rem; }
+  .email-form { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; max-width: 480px; margin: 0 auto; }
+  .email-form input { flex: 1; min-width: 220px; padding: 13px 18px; border-radius: 8px; border: 1.5px solid rgba(201,168,76,0.3); background: rgba(255,255,255,0.08); color: var(--white); font-size: 15px; outline: none; font-family: 'DM Sans', sans-serif; transition: border-color 0.2s; }
+  .email-form input::placeholder { color: rgba(255,255,255,0.35); }
+  .email-form input:focus { border-color: var(--gold); }
+  .email-form button { background: var(--gold); color: var(--navy); border: none; padding: 13px 24px; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+  .email-form button:hover { background: var(--gold-light); }
+  footer { background: #060D14; padding: 3rem 4rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--gold); }
+  .footer-logo span { color: rgba(255,255,255,0.6); }
+  .footer-links { display: flex; gap: 1.5rem; list-style: none; }
+  .footer-links a { color: rgba(255,255,255,0.45); font-size: 13px; text-decoration: none; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-content > * { animation: fadeUp 0.7s ease both; }
+  .hero-content > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-content > *:nth-child(2) { animation-delay: 0.2s; }
+  .hero-content > *:nth-child(3) { animation-delay: 0.3s; }
+  .hero-content > *:nth-child(4) { animation-delay: 0.45s; }
+  .hero-stats { animation: fadeUp 0.7s ease 0.3s both; }
+  @media (max-width: 900px) {
+    nav { padding: 0 1.5rem; } .nav-links { display: none; }
+    .hero { padding: 4rem 1.5rem; } .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .section { padding: 4rem 1.5rem; } .cards-grid { grid-template-columns: 1fr; }
+    .visa-cards { grid-template-columns: 1fr; } .resources-bg { padding: 4rem 1.5rem; }
+    .visa-section { padding: 4rem 1.5rem; } .faq-section { padding: 4rem 1.5rem; }
+    .cta-section { padding: 3rem 1.5rem; } footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Easy<span>USA</span>Apply</div>
+  <ul class="nav-links">
+    <li><a href="#steps">How to Apply</a></li>
+    <li><a href="#resources">Resources</a></li>
+    <li><a href="#visas">Visas</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#newsletter" class="nav-cta">Get Updates</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-content">
+      <div class="hero-tag">🇺🇸 &nbsp; Your Complete Application Guide</div>
+      <h1>Study in<br/><em>America.</em><br/>Made Easy.</h1>
+      <p>Everything international students need — from choosing your university to landing your F-1 visa. Clear, step-by-step, and completely free.</p>
+      <div class="hero-btns">
+        <a href="#steps" class="btn-primary">Start Your Journey →</a>
+        <a href="#resources" class="btn-outline">Browse Resources</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stats-title">📊 &nbsp; USA Study at a Glance</div>
+      <div class="stat-row"><span class="stat-label">International Students</span><div style="text-align:right"><div class="stat-val">1.1M+</div><div class="stat-badge">2024</div></div></div>
+      <div class="stat-row"><span class="stat-label">Universities Ranked #1</span><div style="text-align:right"><div class="stat-val">10</div><div class="stat-badge">Global Top 10</div></div></div>
+      <div class="stat-row"><span class="stat-label">Avg. Scholarships Available</span><div style="text-align:right"><div class="stat-val">$28k</div><div class="stat-badge">Per Year</div></div></div>
+      <div class="stat-row"><span class="stat-label">OPT Work Authorization</span><div style="text-align:right"><div class="stat-val">1–3 yrs</div><div class="stat-badge">After Grad</div></div></div>
+      <div class="stat-row"><span class="stat-label">F-1 Visa Approval Rate</span><div style="text-align:right"><div class="stat-val">~80%</div><div class="stat-badge">Global Avg</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="steps">
+  <div class="section-label">The Roadmap</div>
+  <h2 class="section-title">How to Apply, Step by Step</h2>
+  <p class="section-sub">From researching schools to arriving on campus — here's the complete journey, broken down clearly.</p>
+  <div class="steps-timeline">
+    <div class="step-item"><div class="step-num">1</div><div class="step-body"><h3>Research Universities & Programs</h3><p>Use Common App, NACAC, and university websites to shortlist programs that fit your goals, budget, and academic profile. Create a balanced list of reach, match, and safety schools.</p><div class="step-tags"><span class="tag">Common App</span><span class="tag">Coalition App</span><span class="tag">QS Rankings</span><span class="tag">US News Rankings</span></div></div></div>
+    <div class="step-item"><div class="step-num">2</div><div class="step-body"><h3>Prepare for Standardized Tests</h3><p>Most universities require SAT/ACT for undergraduate and GRE/GMAT for graduate programs. International students also need TOEFL or IELTS to demonstrate English proficiency.</p><div class="step-tags"><span class="tag">SAT / ACT</span><span class="tag">GRE / GMAT</span><span class="tag">TOEFL / IELTS</span><span class="tag">Duolingo English</span></div></div></div>
+    <div class="step-item"><div class="step-num">3</div><div class="step-body"><h3>Write Your Application Essays</h3><p>The personal statement and supplemental essays are your chance to stand out. Start early, be authentic, and tell your unique story. Have multiple reviewers give feedback before submitting.</p><div class="step-tags"><span class="tag">Personal Statement</span><span class="tag">Letters of Rec</span><span class="tag">Activity List</span></div></div></div>
+    <div class="step-item"><div class="step-num">4</div><div class="step-body"><h3>Submit Applications & Apply for Aid</h3><p>Apply by Early Decision (Nov), Early Action (Nov–Dec), or Regular Decision (Jan–Feb) deadlines. Simultaneously apply for scholarships, financial aid (CSS Profile), and external funding.</p><div class="step-tags"><span class="tag">CSS Profile</span><span class="tag">FAFSA</span><span class="tag">Scholarships</span><span class="tag">Deadlines</span></div></div></div>
+    <div class="step-item"><div class="step-num">5</div><div class="step-body"><h3>Receive Admission & Get Your I-20</h3><p>Once accepted, confirm enrollment and pay your deposit. Your university will issue a Form I-20, the Certificate of Eligibility for F-1 status — you'll need this to apply for your visa.</p><div class="step-tags"><span class="tag">Form I-20</span><span class="tag">SEVIS Fee</span><span class="tag">Enrollment Deposit</span></div></div></div>
+    <div class="step-item"><div class="step-num">6</div><div class="step-body"><h3>Apply for Your F-1 Student Visa</h3><p>Pay the SEVIS fee ($350), complete the DS-160 form, schedule a visa interview at the US Embassy/Consulate in your country, and prepare your supporting documents.</p><div class="step-tags"><span class="tag">DS-160</span><span class="tag">Embassy Interview</span><span class="tag">SEVIS I-901</span><span class="tag">Bank Statements</span></div></div></div>
+    <div class="step-item"><div class="step-num">7</div><div class="step-body"><h3>Arrive & Thrive in the USA 🎉</h3><p>Attend your university's international student orientation, set up your SSN, bank account, and health insurance. Explore on-campus work options and connect with your DSO.</p><div class="step-tags"><span class="tag">Orientation</span><span class="tag">SSN</span><span class="tag">Health Insurance</span><span class="tag">On-Campus Work</span></div></div></div>
+  </div>
+</section>
+
+<section class="resources-bg" id="resources">
+  <div class="resources-inner">
+    <div class="section-label" style="color:var(--gold-light)">Resource Library</div>
+    <h2 class="section-title">Everything You Need, In One Place</h2>
+    <p class="section-sub">Curated guides, checklists, and tools for every part of your journey.</p>
+    <div class="cards-grid">
+      <div class="res-card"><div class="res-icon">📝</div><h3>Application Checklists</h3><p>Downloadable checklists for undergraduate, graduate, and community college applications.</p><a class="res-link" href="#">Download Free →</a></div>
+      <div class="res-card"><div class="res-icon">🎓</div><h3>Scholarship Database</h3><p>Over 200 scholarships available to international students, filterable by major, country, and level.</p><a class="res-link" href="#">Explore Scholarships →</a></div>
+      <div class="res-card"><div class="res-icon">✍️</div><h3>Essay Writing Guide</h3><p>A comprehensive guide on writing Common App essays, supplementals, and personal statements.</p><a class="res-link" href="#">Read the Guide →</a></div>
+      <div class="res-card"><div class="res-icon">🧪</div><h3>Test Prep Resources</h3><p>Free and paid resources for SAT, ACT, GRE, GMAT, TOEFL, and IELTS preparation.</p><a class="res-link" href="#">Start Studying →</a></div>
+      <div class="res-card"><div class="res-icon">💰</div><h3>Financial Aid Guide</h3><p>Understand the CSS Profile, need-blind vs. need-aware aid policies, and how to appeal awards.</p><a class="res-link" href="#">Learn More →</a></div>
+      <div class="res-card"><div class="res-icon">🏠</div><h3>Housing & Campus Life</h3><p>Tips on on-campus housing applications, off-campus rentals, and adjusting to life in the US.</p><a class="res-link" href="#">Explore Guide →</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="visa-section" id="visas">
+  <div class="visa-inner">
+    <div class="section-label">Student Visas</div>
+    <h2 class="section-title">Which Visa Do You Need?</h2>
+    <p class="section-sub">The most common visa categories for students studying in the United States.</p>
+    <div class="visa-cards">
+      <div class="visa-card"><div class="visa-type">Most Common</div><h3>F-1 Visa</h3><p class="visa-desc">For full-time students enrolled in academic programs at accredited US colleges, universities, and language schools.</p><div class="visa-details"><div class="visa-detail-row"><span class="key">Validity</span><span class="val">Duration of Status</span></div><div class="visa-detail-row"><span class="key">Work Auth</span><span class="val">CPT / OPT</span></div><div class="visa-detail-row"><span class="key">SEVIS Fee</span><span class="val">$350</span></div><div class="visa-detail-row"><span class="key">Form</span><span class="val">DS-160 + I-20</span></div></div></div>
+      <div class="visa-card"><div class="visa-type">Vocational & Short-Term</div><h3>M-1 Visa</h3><p class="visa-desc">For students attending vocational or non-academic programs, such as flight schools or technical courses.</p><div class="visa-details"><div class="visa-detail-row"><span class="key">Validity</span><span class="val">Up to 1 Year</span></div><div class="visa-detail-row"><span class="key">Work Auth</span><span class="val">Very Limited</span></div><div class="visa-detail-row"><span class="key">SEVIS Fee</span><span class="val">$350</span></div><div class="visa-detail-row"><span class="key">Form</span><span class="val">DS-160 + I-20</span></div></div></div>
+      <div class="visa-card"><div class="visa-type">Exchange Programs</div><h3>J-1 Visa</h3><p class="visa-desc">For exchange visitors including students, researchers, and scholars participating in approved exchange programs.</p><div class="visa-details"><div class="visa-detail-row"><span class="key">Validity</span><span class="val">Program Length</span></div><div class="visa-detail-row"><span class="key">Work Auth</span><span class="val">Program-Based</span></div><div class="visa-detail-row"><span class="key">SEVIS Fee</span><span class="val">$220</span></div><div class="visa-detail-row"><span class="key">Form</span><span class="val">DS-2019</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section" id="faq">
+  <div class="faq-inner">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q"><span>Can I work while studying in the USA on an F-1 visa?</span><span class="icon">+</span></div><div class="faq-a">Yes — F-1 students can work on-campus up to 20 hours per week during the semester and full-time during breaks. Off-campus work requires CPT or OPT authorization, both linked to your field of study.</div></div>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q"><span>Do I need to take the SAT/ACT as an international student?</span><span class="icon">+</span></div><div class="faq-a">Many universities have gone test-optional. However, some selective programs still require SAT/ACT scores. Graduate programs typically require GRE or GMAT. Always check each school's specific requirements.</div></div>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q"><span>How much money do I need to prove for a student visa interview?</span><span class="icon">+</span></div><div class="faq-a">You need to demonstrate you can cover at least one full year of tuition plus living expenses — shown through bank statements, scholarship letters, or sponsor letters. Your I-20 will show your school's estimated cost of attendance.</div></div>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q"><span>When should I start applying for US universities?</span><span class="icon">+</span></div><div class="faq-a">Ideally, start preparing 18–24 months before your intended start date. Early Decision deadlines are usually in November, with Regular Decision in January–February for fall enrollment.</div></div>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q"><span>Can international students get scholarships and financial aid?</span><span class="icon">+</span></div><div class="faq-a">Yes! Many universities offer need-based and merit-based aid to international students. Some schools like MIT and Harvard meet 100% of demonstrated financial need regardless of citizenship.</div></div>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q"><span>What is SEVIS and why do I have to pay for it?</span><span class="icon">+</span></div><div class="faq-a">SEVIS is the US government database tracking international students. You must pay the I-901 fee ($350 for F/M visas, $220 for J visas) before your visa interview. It's a mandatory government fee separate from your visa application fee.</div></div>
+  </div>
+</section>
+
+<section class="cta-section" id="newsletter">
+  <h2>Stay Updated on<br/><em style="color:var(--gold)">Deadlines & Scholarships</em></h2>
+  <p>Get weekly updates on new scholarships, application deadlines, and visa news — free from EasyUSAApply.</p>
+  <div class="email-form">
+    <input type="email" placeholder="your@email.com" />
+    <button type="button">Subscribe</button>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Easy<span>USA</span>Apply</div>
+  <ul class="footer-links">
+    <li><a href="#">About</a></li>
+    <li><a href="#">Resources</a></li>
+    <li><a href="#">Visa Help</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="#">Privacy</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 EasyUSAApply.com — For students, by students.</div>
+</footer>
+
+<script>
+function toggleFaq(el) {
+  const wasOpen = el.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) el.classList.add('open');
+}
+</script>
+</body>
+</html>
