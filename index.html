@@ -2291,6 +2291,44 @@
     }
   })();
 
+  /* ── Resource Card Cover Images from Hashnode ── */
+  (async function loadResourceImages() {
+    const SLUGS = [
+      'your-dream-to-study-in-the-usa-starts-here',
+      'top-10-fully-funded-scholarships-for-international-students-in-2026',
+      'f1-visa-interview-what-to-expect-and-how-to-prepare',
+      'arriving-in-the-us-your-first-30-days-guide-for-international-students',
+    ];
+    const GQL_QUERY = `query {
+      publication(host: "blog.easyusaapply.com") {
+        p0: post(slug: "${SLUGS[0]}") { coverImage { url } }
+        p1: post(slug: "${SLUGS[1]}") { coverImage { url } }
+        p2: post(slug: "${SLUGS[2]}") { coverImage { url } }
+        p3: post(slug: "${SLUGS[3]}") { coverImage { url } }
+      }
+    }`;
+    try {
+      const res = await fetch('https://gql.hashnode.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query: GQL_QUERY }),
+        signal: AbortSignal.timeout(8000)
+      });
+      if (!res.ok) return;
+      const { data } = await res.json();
+      const pub = data?.publication;
+      if (!pub) return;
+      const images = [pub.p0, pub.p1, pub.p2, pub.p3].map(p => p?.coverImage?.url || null);
+      document.querySelectorAll('.resource-card').forEach((card, idx) => {
+        const imgUrl = images[idx];
+        if (!imgUrl) return;
+        const thumb = card.querySelector('.card-thumb');
+        if (!thumb) return;
+        thumb.innerHTML = `<img src="${imgUrl}" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />`;
+      });
+    } catch { /* silently keep SVG placeholders */ }
+  })();
+
   /* ── Active nav link on scroll ── */
   const sections = document.querySelectorAll('section[id], div[id="hero"]');
   const navLinks = document.querySelectorAll('.nav-links a');
